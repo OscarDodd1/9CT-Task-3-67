@@ -8,6 +8,25 @@ def select_option():
 
     choice1 = input("\nChoice: ")
 
+    #!!!! for table selection, make it so there is pages that you can flip through that displays the tables
+    #make it so it shows 5 in a page
+    #what itl look like:
+    #|===Tables===|
+    #1 - Table1
+    #2 - Table2
+    #3 - Table3
+    #4 - Table4
+    #5 - Table5
+    #Page 1/2
+
+    #|===Tables===|
+    #1 - Table6
+    #2 - Table7
+    #3 - Table8
+    #4 - None
+    #5 - No
+    #Page 2/2
+
     print("\n")
 
     if choice1 == "1":
