@@ -35,7 +35,9 @@ def choose_table():
             print(f"5 - {data_module.get_name(page * 5)}")
         else:
             print(f"5 - None")
-        print(f"Page {page}/{pages} | < to go back | > to go forward |")
+
+        print("============")
+        print(f"Page {page}/{pages} | < to go back | > to go forward | ~ to go to start |")
 
         choice1 = input("\nChoice: ")
 
@@ -61,6 +63,8 @@ def choose_table():
             else:
                 print("\nAlready at the last page")
                 time.sleep(2)
+        elif choice1 == "~":
+            return False
         else:
             print("Choose from 1-5")
             time.sleep(2)
@@ -79,22 +83,24 @@ def select_option():
 
     if choice1 == "1":
         tableNum = choose_table()
-        table = data_module.get_table(tableNum)
+        
+        if tableNum != False:
+            table = data_module.get_table(tableNum)
 
-        print(f"\n====={table.name}=====")
+            print(f"\n====={table.name}=====")
 
-        for i in table:
-            print(i)
+            for i in table:
+                print(i)
 
-        #this bit is literaly jus for looks
-        numlen = len(table.name)
-        chars = ""
+            #this bit is literaly jus for looks
+            numlen = len(table.name)
+            chars = ""
 
-        while numlen > 0:
-            chars += "="
-            numlen -= 1
+            while numlen > 0:
+                chars += "="
+                numlen -= 1
 
-        print(f"====={chars}=====")
+            print(f"====={chars}=====")
 
     elif choice1 == "2":
         print("Choose table and filter type")
