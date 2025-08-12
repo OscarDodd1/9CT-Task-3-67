@@ -37,7 +37,7 @@ def choose_table():
             print(f"5 - None")
 
         print("============")
-        print(f"Page {page}/{pages} | < to go back | > to go forward | ~ to go to start |")
+        print(f"| Page {page}/{pages} | < to go back | > to go forward | ~ to go to start |")
 
         choice1 = input("\nChoice: ")
 
