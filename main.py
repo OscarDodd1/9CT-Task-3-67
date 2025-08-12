@@ -1,27 +1,71 @@
+import data_module
+import time
+
 def choose_table():
-    table_chosen = "table" #placeholder
-    print("\n===Tables===")
-    ##print first 5 tables
+    table_chosen = 0
+
+    page = 1
+    pages = 0
+    
+    num = data_module.amount_of_titles() - 1 #-1 because the timestamp from the form doesnt need to be included
+
+    while num > 0:
+        pages += 1
+        num -= 5
+    
+    while table_chosen == 0:
+        print("\n===Tables===")
+        if data_module.get_name((page * 5) - 4) != False:
+            print(f"1 - {data_module.get_name((page * 5) - 4)}")
+        else:
+            print(f"1 - None")
+        if data_module.get_name((page * 5) - 3) != False:
+            print(f"2 - {data_module.get_name((page * 5) - 3)}")
+        else:
+            print(f"2 - None")
+        if data_module.get_name((page * 5) - 2) != False:
+            print(f"3 - {data_module.get_name((page * 5) - 2)}")
+        else:
+            print(f"3 - None")
+        if data_module.get_name((page * 5) - 1) != False:
+            print(f"4 - {data_module.get_name((page * 5) - 1)}")
+        else:
+            print(f"4 - None")
+        if data_module.get_name(page * 5) != False:
+            print(f"5 - {data_module.get_name(page * 5)}")
+        else:
+            print(f"5 - None")
+        print(f"Page {page}/{pages} | < to go back | > to go forward |")
+
+        choice1 = input("\nChoice: ")
+
+        if choice1 == "1":
+            table_chosen = (page * 5) - 4
+        elif choice1 == "2":
+            table_chosen = (page * 5) - 3
+        elif choice1 == "3":
+            table_chosen = (page * 5) - 2
+        elif choice1 == "4":
+            table_chosen = (page * 5) - 1
+        elif choice1 == "5":
+            table_chosen = page * 5
+        elif choice1 == "<":
+            if page > 1:
+                page -= 1
+            else:
+                print("\nAlready at the first page")
+                time.sleep(2)
+        elif choice1 == ">":
+            if page < pages:
+                page += 1
+            else:
+                print("\nAlready at the last page")
+                time.sleep(2)
+        else:
+            print("Choose from 1-5")
+            time.sleep(2)
+    
     return table_chosen
-
-    #!!!! for table selection, make it so there is pages that you can flip through that displays the tables
-    #make it so it shows 5 in a page
-    #what itl look like:
-    #|===Tables===|
-    #1 - Table1
-    #2 - Table2
-    #3 - Table3
-    #4 - Table4
-    #5 - Table5
-    #Page 1/2
-
-    #|===Tables===|
-    #1 - Table6
-    #2 - Table7
-    #3 - Table8
-    #4 - None
-    #5 - None
-    #Page 2/2
 
 def select_option():
     print("\n===Select Option===")
@@ -34,14 +78,32 @@ def select_option():
     choice1 = input("\nChoice: ")
 
     if choice1 == "1":
-        print(choose_table())
+        tableNum = choose_table()
+        table = data_module.get_table(tableNum)
+
+        print(f"\n====={table.name}=====")
+
+        for i in table:
+            print(i)
+
+        #this bit is literaly jus for looks
+        numlen = len(table.name)
+        chars = ""
+
+        while numlen > 0:
+            chars += "="
+            numlen -= 1
+
+        print(f"====={chars}=====")
+
     elif choice1 == "2":
         print("Choose table and filter type")
     elif choice1 == "3":
         print("choose table to visualise")
     elif choice1 == "4":
-        print("Exit")
+        exit()
     else:
         print("What...")
 
-select_option()
+while True:
+    select_option()
