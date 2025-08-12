@@ -1,12 +1,8 @@
-def select_option():
-    print("\n===Select Option===")
-    print("1 - View Table")
-    print("2 - Filter Table")
-    print("3 - Visualise")
-    print("4 - Exit")
-    print("===================")
-
-    choice1 = input("\nChoice: ")
+def choose_table():
+    table_chosen = "table" #placeholder
+    print("\n===Tables===")
+    ##print first 5 tables
+    return table_chosen
 
     #!!!! for table selection, make it so there is pages that you can flip through that displays the tables
     #make it so it shows 5 in a page
@@ -24,13 +20,21 @@ def select_option():
     #2 - Table7
     #3 - Table8
     #4 - None
-    #5 - No
+    #5 - None
     #Page 2/2
 
-    print("\n")
+def select_option():
+    print("\n===Select Option===")
+    print("1 - View Table")
+    print("2 - Filter Table")
+    print("3 - Visualise")
+    print("4 - Exit")
+    print("===================")
+
+    choice1 = input("\nChoice: ")
 
     if choice1 == "1":
-        print("Choose table")
+        print(choose_table())
     elif choice1 == "2":
         print("Choose table and filter type")
     elif choice1 == "3":
