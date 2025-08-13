@@ -81,7 +81,7 @@ def select_option():
 
     choice1 = input("\nChoice: ")
 
-    if choice1 == "1":
+    if choice1 == "1": #View table
         tableNum = choose_table()
         
         if tableNum != False:
@@ -92,7 +92,7 @@ def select_option():
             for i in table:
                 print(i)
 
-            #this bit is literaly jus for looks
+            #this bit is literaly just for looks
             numlen = len(table.name)
             chars = ""
 
@@ -102,13 +102,13 @@ def select_option():
 
             print(f"====={chars}=====")
 
-    elif choice1 == "2":
+    elif choice1 == "2": #Filtering a table
         print("Choose table and filter type")
-    elif choice1 == "3":
+    elif choice1 == "3": #Visualising a table
         print("choose table to visualise")
-    elif choice1 == "4":
+    elif choice1 == "4": #Exiting the program
         exit()
-    else:
+    else: #If the user inputs something that cant be proccessed
         print("What...")
 
 while True:
