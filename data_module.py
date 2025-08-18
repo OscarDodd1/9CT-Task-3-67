@@ -20,6 +20,17 @@ def get_name(place):
 
 def visualise_graph(num):
     graphToShow = df.iloc[:,num]
+    
+    print("\n===Select Type===")
+    print("1 - Bar")
+    print("2 - Pie")
+    print("=================")
+
+    typeOfGraph = input("Choice: ")
+
+    if typeOfGraph == "1":
+        try:
+            print("print the graph")
 
 def get_table(num):
     TableToShow = df.iloc[:,num]
