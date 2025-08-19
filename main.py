@@ -105,10 +105,13 @@ def select_option():
     elif choice1 == "2": #Filtering a table
         print("Choose table and filter type")
     elif choice1 == "3": #Visualising a table
-        tableNum = choose_table()
+        print("===Table 1===")
+        tableNum1 = choose_table()
+        print("===Table 2===")
+        tableNum2 = choose_table()
         
-        if tableNum != False:
-            data_module.visualise_graph(tableNum)
+        if tableNum1 != False and tableNum2 != False:
+            data_module.visualise_graph(tableNum1, tableNum2)
 
     elif choice1 == "4": #Exiting the program
         exit()
