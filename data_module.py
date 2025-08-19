@@ -1,5 +1,5 @@
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("Data/Data1.csv")
 
@@ -18,21 +18,32 @@ def get_name(place):
 
     return data.name
 
-def visualise_graph(num):
-    graphToShow = df.iloc[:,num]
+def visualise_graph():
+   
     
     print("\n===Select Type===")
-    print("1 - Bar")
-    print("2 - Pie")
+    print("1 - Scatter")
+    print("2 - Bar")
+    print("3 - Pie")
     print("=================")
 
-    typeOfGraph = input("Choice: ")
+    #typeOfGraph = input("Choice: ")
 
-    if typeOfGraph == "1":
-        try:
-            print("print the graph")
+    #if typeOfGraph == "1": #bar
+    df.plot(
+            kind ='bar',
+            x = 'Do you study in public spaces? e.g. library, park, train',
+            y = 'How close do you live to a public space?',
+            color = 'blue',
+            alpha = 0.3,
+            title = 'lol'
+        )
+
+    plt.show()
 
 def get_table(num):
     TableToShow = df.iloc[:,num]
 
     return TableToShow
+
+visualise_graph()

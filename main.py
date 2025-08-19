@@ -105,7 +105,11 @@ def select_option():
     elif choice1 == "2": #Filtering a table
         print("Choose table and filter type")
     elif choice1 == "3": #Visualising a table
-        print("choose table to visualise")
+        tableNum = choose_table()
+        
+        if tableNum != False:
+            data_module.visualise_graph(tableNum)
+
     elif choice1 == "4": #Exiting the program
         exit()
     else: #If the user inputs something that cant be proccessed
