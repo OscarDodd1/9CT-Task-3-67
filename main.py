@@ -74,7 +74,7 @@ def choose_table():
 def select_option():
     print("\n===Select Option===")
     print("1 - View Table")
-    print("2 - Filter Table")
+    print("2 - Keyword filter")
     print("3 - Visualise")
     print("4 - Exit")
     print("===================")
@@ -102,7 +102,7 @@ def select_option():
 
             print(f"====={chars}=====")
 
-    elif choice1 == "2": #Filtering a table
+    elif choice1 == "2": #Keyword Filtering
         tableToFilter = choose_table()
         tableToFilter = data_module.get_table(tableToFilter)
 
