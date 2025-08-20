@@ -37,7 +37,7 @@ def choose_table():
             print(f"5 - None")
 
         print("============")
-        print(f"| Page {page}/{pages} | < to go back | > to go forward | ~ to go to start |")
+        print(f"| Page {page}/{pages} | < to go back | > to go forward | ~ to cancell |")
 
         choice1 = input("\nChoice: ")
 
@@ -103,11 +103,27 @@ def select_option():
             print(f"====={chars}=====")
 
     elif choice1 == "2": #Filtering a table
-        print("Choose table and filter type")
+        tableToFilter = choose_table()
+        tableToFilter = data_module.get_table(tableToFilter)
+
+        print("\n===Choose a keyword or number, like yes, library or 60")
+        KeyWord = input("Keyword: ")
+
+        num = 0
+
+        for i in tableToFilter:
+            if KeyWord.lower() in str(i).lower():
+                print(i)
+                num += 1
+
+        print("================")
+        print(f"Found: {num}")
+        print("================")
+
     elif choice1 == "3": #Visualising a table
-        print("===Table 1===")
+        print("===X Values===")
         tableNum1 = choose_table()
-        print("===Table 2===")
+        print("===Y Values===")
         tableNum2 = choose_table()
         
         if tableNum1 != False and tableNum2 != False:
@@ -116,7 +132,7 @@ def select_option():
     elif choice1 == "4": #Exiting the program
         exit()
     else: #If the user inputs something that cant be proccessed
-        print("What...")
+        print("Please choose from 1-4")
 
 while True:
     select_option()

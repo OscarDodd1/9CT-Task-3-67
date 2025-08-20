@@ -18,6 +18,18 @@ def get_name(place):
 
     return data.name
 
+def plot_graph(kind, g1, g2, title):
+    df.plot(
+                kind = kind,
+                x = g1,
+                y = g2,
+                color = 'blue',
+                alpha = 0.3,
+                title = title
+                )
+    
+    plt.show()
+
 def visualise_graph(num1, num2):
     graph1 = get_name(num1)
     graph2 = get_name(num2)
@@ -25,25 +37,22 @@ def visualise_graph(num1, num2):
     print("\n===Select Type===")
     print("1 - Bar")
     print("2 - Scatter")
-    print("3 - Pie")
     print("=================")
 
     typeOfGraph = input("Choice: ")
 
     if typeOfGraph == "1": #bar
         try:
-            df.plot(
-                kind = 'bar',
-                x = graph1,
-                y = graph2,
-                color = 'blue',
-                alpha = 0.3,
-                title = 'lol'
-                )
-            
-            plt.show()
+            plot_graph("bar", graph1, graph2, graph1 + " vs " + graph2)
         except:
-            print("Cant show graph")
+            print("Error while trying to show graph.")
+    elif typeOfGraph == "2": #scatter
+        try:
+            plot_graph("scatter", graph1, graph2, graph1 + " vs " + graph2)
+        except:
+            print("Error while trying to show graph.")
+    else:
+        print("Choose a correct graph type.")
 
 def get_table(num):
     TableToShow = df.iloc[:,num]
